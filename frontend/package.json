@@ -1,0 +1,68 @@
+{
+  "name": "depaul-frontend",
+  "version": "1.0.0",
+  "homepage": "/",
+  "private": true,
+  "engines": {
+    "node": "18.x"
+  },
+  "dependencies": {
+    "@auth0/auth0-react": "^2.0.1",
+    "@azure/msal-browser": "^3.1.0",
+    "@azure/msal-react": "^2.0.3",
+    "@michalrakus/x-react-web-lib": "file:..\\..\\XReactWebLib\\michalrakus-x-react-web-lib-1.33.0.tgz",
+    "axios": "^1.4.0",
+    "lodash": "^4.17.21",
+    "primeflex": "^3.3.1",
+    "primeicons": "^7.0.0",
+    "primereact": "10.8.5",
+    "quill": "^2.0.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-transition-group": "^4.4.5"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.21.3",
+    "@babel/plugin-syntax-flow": "^7.18.6",
+    "@babel/plugin-transform-react-jsx": "^7.21.0",
+    "@testing-library/dom": "^9.0.1",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^14.0.0",
+    "@testing-library/user-event": "^14.4.3",
+    "@types/jest": "^29.5.0",
+    "@types/lodash": "^4.14.191",
+    "@types/node": "^18.15.3",
+    "@types/react": "^18.3.1",
+    "@types/react-dom": "^18.3.1",
+    "@types/react-transition-group": "^4.4.5",
+    "react-scripts": "5.0.1",
+    "typescript": "^4.9.5"
+  },
+  "scripts": {
+    "start": "react-scripts --openssl-legacy-provider start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "linkLib": "pnpm link @michalrakus/x-react-web-lib",
+    "buildAndPackLib": "pnpm --prefix ../../XReactWebLib run buildAndPack",
+    "installLib": "pnpm install ../../XReactWebLib/michalrakus-x-react-web-lib-1.33.0.tgz -w",
+    "bl": "pnpm run buildAndPackLib && pnpm run installLib",
+    "sl": "pnpm run bl && pnpm run start",
+    "preinstall": "npx only-allow pnpm"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
