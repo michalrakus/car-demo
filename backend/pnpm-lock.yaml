@@ -494,7 +494,7 @@ packages:
     hasBin: true
 
   '@michalrakus/x-nest-server-lib@file:../../XNestServerLib/michalrakus-x-nest-server-lib-1.33.0.tgz':
-    resolution: {integrity: sha512-g816Fj3JOlvwshIwrF0QfZ4Ho9WwsZTdRfImpnmiBPSoVUtG/Usc47+kGU1qx++82A07YIIIKhsYs3WIu4rC7Q==, tarball: file:../../XNestServerLib/michalrakus-x-nest-server-lib-1.33.0.tgz}
+    resolution: {integrity: sha512-+w/Jov+sciU9y5wumCg1eqmPWm8fWVjLj5UKvLbep5p/2WDEAwaVbK2A6I2Phca4q6D4ab4gxFa1A4HK8qTtyw==, tarball: file:../../XNestServerLib/michalrakus-x-nest-server-lib-1.33.0.tgz}
     version: 1.33.0
     peerDependencies:
       '@nestjs/common': ^9.3.9
