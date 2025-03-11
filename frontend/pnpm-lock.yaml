@@ -18,8 +18,8 @@ importers:
         specifier: ^2.0.3
         version: 2.0.3(@azure/msal-browser@3.1.0)(react@18.3.1)(tslib@2.1.0)(typescript@4.9.5)
       '@michalrakus/x-react-web-lib':
-        specifier: file:..\..\XReactWebLib\michalrakus-x-react-web-lib-1.33.0.tgz
-        version: file:../../XReactWebLib/michalrakus-x-react-web-lib-1.33.0.tgz(primeflex@3.3.1)(primeicons@7.0.0)(primereact@10.8.5(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(quill@2.0.3)(react-dom@18.3.1(react@18.3.1))(react-transition-group@4.4.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)
+        specifier: 1.34.0
+        version: 1.34.0(primeflex@3.3.1)(primeicons@7.0.0)(primereact@10.8.5(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(quill@2.0.3)(react-dom@18.3.1(react@18.3.1))(react-transition-group@4.4.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)
       axios:
         specifier: ^1.4.0
         version: 1.4.0
@@ -1284,9 +1284,8 @@ packages:
   '@leichtgewicht/ip-codec@2.0.4':
     resolution: {integrity: sha512-Hcv+nVC0kZnQ3tD9GVu5xSMR4VVYOteQIr/hwFPVEvPdlXqgGEuRjiheChHgdM+JyqdgNcmzZOX/tnl0JOiI7A==}
 
-  '@michalrakus/x-react-web-lib@file:../../XReactWebLib/michalrakus-x-react-web-lib-1.33.0.tgz':
-    resolution: {integrity: sha512-mELj8nKLG/tu759pJ+ND0/n8Is5FzSikF6mnROPw4m2YjsqWakBB1cqA12w6QQ1MT+EbLcTkzEM5IAYXy26uDQ==, tarball: file:../../XReactWebLib/michalrakus-x-react-web-lib-1.33.0.tgz}
-    version: 1.33.0
+  '@michalrakus/x-react-web-lib@1.34.0':
+    resolution: {integrity: sha512-VnXNyDDW3jHSTs8ZsNoIoQF8kfNnTR/k8d8mnzVZR21tQ1DAE4qS9qBLXM18sbZVGyaSgC7Cp221PXiUVaN9zg==}
     peerDependencies:
       primeflex: ^3.3.1
       primeicons: ^7.0.0
@@ -7370,7 +7369,7 @@ snapshots:
 
   '@leichtgewicht/ip-codec@2.0.4': {}
 
-  '@michalrakus/x-react-web-lib@file:../../XReactWebLib/michalrakus-x-react-web-lib-1.33.0.tgz(primeflex@3.3.1)(primeicons@7.0.0)(primereact@10.8.5(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(quill@2.0.3)(react-dom@18.3.1(react@18.3.1))(react-transition-group@4.4.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)':
+  '@michalrakus/x-react-web-lib@1.34.0(primeflex@3.3.1)(primeicons@7.0.0)(primereact@10.8.5(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(quill@2.0.3)(react-dom@18.3.1(react@18.3.1))(react-transition-group@4.4.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)':
     dependencies:
       dateformat: 4.6.3
       lodash: 4.17.21

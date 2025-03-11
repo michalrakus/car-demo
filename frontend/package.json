@@ -10,7 +10,7 @@
     "@auth0/auth0-react": "^2.0.1",
     "@azure/msal-browser": "^3.1.0",
     "@azure/msal-react": "^2.0.3",
-    "@michalrakus/x-react-web-lib": "file:..\\..\\XReactWebLib\\michalrakus-x-react-web-lib-1.33.0.tgz",
+    "@michalrakus/x-react-web-lib": "1.34.0",
     "axios": "^1.4.0",
     "lodash": "^4.17.21",
     "primeflex": "^3.3.1",
@@ -45,7 +45,7 @@
     "eject": "react-scripts eject",
     "linkLib": "pnpm link @michalrakus/x-react-web-lib",
     "buildAndPackLib": "pnpm --prefix ../../XReactWebLib run buildAndPack",
-    "installLib": "pnpm install ../../XReactWebLib/michalrakus-x-react-web-lib-1.33.0.tgz -w",
+    "installLib": "pnpm install ../../XReactWebLib/michalrakus-x-react-web-lib-1.34.0.tgz -w",
     "bl": "pnpm run buildAndPackLib && pnpm run installLib",
     "sl": "pnpm run bl && pnpm run start",
     "preinstall": "npx only-allow pnpm"
