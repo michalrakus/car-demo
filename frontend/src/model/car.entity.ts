@@ -15,6 +15,8 @@ export interface Car {
     comment: string | null;
     brandAssoc: Brand | null;
     rideList: Ride[];
+
+    // technical attributes
     modifDate: Date | null;
     modifXUser: XUser | null;
     version: number;

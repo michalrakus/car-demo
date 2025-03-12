@@ -29,11 +29,11 @@ export class Ride {
     @Column({name: 'ride_boolean', nullable: false})
     rideBoolean: boolean;
 
-    @ManyToOne(type => Car, car => car.rideList, {nullable: false})
-    @JoinColumn({name: "car_id"})
+    @ManyToOne(() => Car, car => car.rideList, {nullable: false})
+    @JoinColumn({name: "car_id", referencedColumnName: "id"})
     car: Car;
 
-    @ManyToOne(type => Country, {nullable: true})
-    @JoinColumn({name: "country_id"})
+    @ManyToOne(() => Country, {nullable: true})
+    @JoinColumn({name: "country_id", referencedColumnName: "id"})
     country: Country | null;
 }

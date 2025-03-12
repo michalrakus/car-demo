@@ -36,11 +36,11 @@ export class Car {
     @Column({nullable: true})
     comment: string | null;
 
-    @ManyToOne(type => Brand, {nullable: true})
-    @JoinColumn({ name: "brand_id" })
+    @ManyToOne(() => Brand, { nullable: true })
+    @JoinColumn({ name: "brand_id", referencedColumnName: "id" })
     brandAssoc: Brand | null;
 
-    @OneToMany(type => Ride, drive => drive.car, {cascade: ["insert", "update", "remove"]})
+    @OneToMany(() => Ride, drive => drive.car, {cascade: ["insert", "update", "remove"]})
     rideList: Ride[];
 
     // technical attributes

@@ -13,13 +13,13 @@ export const CarBrowse = (props: XBrowseProps & XSearchBrowseProps) => {
 
     const onAddRow = () => {
 
-        // openForm pridavame automaticky v XFormNavigator3 pri renderovani komponentu
+        // openForm is added automatically in XFormNavigator3
         (props as any).openForm(<CarForm/>);
     }
 
     const onEdit = (selectedRow: any) => {
 
-        // openForm pridavame automaticky v XFormNavigator3 pri renderovani komponentu
+        // openForm is added automatically in XFormNavigator3
         (props as any).openForm(<CarForm id={selectedRow.id}/>);
     }
 

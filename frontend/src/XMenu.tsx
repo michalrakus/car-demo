@@ -9,6 +9,8 @@ import {XBrowseMetaBrowse} from "@michalrakus/x-react-web-lib/XBrowseMetaBrowse"
 import {XHolder1, XHolder2} from "@michalrakus/x-react-web-lib/XHolders";
 import { User } from "@auth0/auth0-react";
 import {XEditBrowse} from "@michalrakus/x-react-web-lib/XEditBrowse";
+import {ClientBrowse} from "./forms/ClientBrowse";
+import {CarReservationBrowse} from "./forms/CarReservationBrowse";
 
 // TODO - v buducnosti presunut do XReactWebLib
 export const XMenu = (props: {defaultFormElement?: any; logout: () => void; user?: User | undefined}) => {
@@ -20,22 +22,24 @@ export const XMenu = (props: {defaultFormElement?: any; logout: () => void; user
         {
             label:'Application',
             items:[
-                {label:'Brand', command: () => {openForm(<BrandBrowse/>);}},
-                {label:'Car', command: () => {openForm(<CarBrowse/>);}}
+                {label:'Brands', command: () => {openForm(<BrandBrowse/>);}},
+                {label:'Cars', command: () => {openForm(<CarBrowse/>);}},
+                {label:'Clients', command: () => {openForm(<ClientBrowse/>);}},
+                {label:'Car reservations', command: () => {openForm(<CarReservationBrowse/>);}}
             ]
         },
-        {
-            label:'Runtime edit',
-            items:[
-                {label:'Brand - runtime edit', command: () => {openForm(<XEditBrowse entity="Brand"/>);}},
-                {label:'Car - runtime edit', command: () => {openForm(<XEditBrowse entity="Car"/>);}}
-            ]
-        },
+        // {
+        //     label:'Runtime edit',
+        //     items:[
+        //         {label:'Brand - runtime edit', command: () => {openForm(<XEditBrowse entity="Brand"/>);}},
+        //         {label:'Car - runtime edit', command: () => {openForm(<XEditBrowse entity="Car"/>);}}
+        //     ]
+        // },
         {
             label:'Administration',
             items:[
-                {label:'Users', command: () => {openForm(<XUserBrowse/>);}},
-                {label:'Browses', command: () => {openForm(<XBrowseMetaBrowse/>);}}
+                {label:'Users', command: () => {openForm(<XUserBrowse/>);}}
+                //{label:'Browses', command: () => {openForm(<XBrowseMetaBrowse/>);}}
                 //{label:'Change password', command: () => {openForm(<XChangePasswordForm setXToken={props.setXToken}/>);}}
             ]
         },
@@ -54,9 +58,13 @@ export const XMenu = (props: {defaultFormElement?: any; logout: () => void; user
         setRenderHolder1(!renderHolder1);
     }
 
+    /* dropdown ide nalavo, backend + user ide napravo (pomocou marginLeft: 'auto') - este boli potrebne zmeny v App.css */
     const end: any = (
-        <div className="grid">
-            <div className="mx-2">Backend: {XUtils.getXBackendUrl()}</div><div className="mx-2">  User: {/*XUtils.getUsername()*/props.user?.name}</div>
+        <div className="flex" style={{width: '100%'}}>
+            <div className="flex align-content-center" style={{marginLeft: 'auto'}}>
+                {!XUtils.isMobile() ? <div style={{padding: '0.5rem'}}>Backend: {XUtils.getXBackendUrl()}</div> : null}
+                <div style={{padding: '0.5rem'}}>User: {/*XUtils.getUsername()*/XUtils.getXToken()?.xUser?.name}</div>
+            </div>
         </div>
     );
 

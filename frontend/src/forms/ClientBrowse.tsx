@@ -5,34 +5,37 @@ import {
     XLazyDataTable,
     XSearchBrowseProps
 } from "@michalrakus/x-react-web-lib/XLazyDataTable";
-import {BrandForm} from "./BrandForm";
 import {SourceCodeLinkForm} from "./SourceCodeLinkForm";
 import {SourceCodeLinkEntity} from "./SourceCodeLinkEntity";
+import {ClientForm} from "./ClientForm";
+import {Client} from "../model/client.entity";
 
-export const BrandBrowse = (props: XBrowseProps & XSearchBrowseProps) => {
+export const ClientBrowse = (props: XBrowseProps & XSearchBrowseProps) => {
 
     const onAddRow = () => {
 
         // openForm is added automatically in XFormNavigator3
-        (props as any).openForm(<BrandForm/>);
+        props.openForm!(<ClientForm/>);
     }
 
-    const onEdit = (selectedRow: any) => {
+    const onEdit = (selectedRow: Client) => {
 
         // openForm is added automatically in XFormNavigator3
-        (props as any).openForm(<BrandForm id={selectedRow.id}/>);
+        props.openForm!(<ClientForm id={selectedRow.id}/>);
     }
 
     return (
         <div>
-            <XLazyDataTable entity="Brand" label="Brands" rows={30} formFooterHeight={'4.43rem'}
+            <XLazyDataTable entity="Client" label="Clients" rows={30} formFooterHeight={'4.43rem'}
                             onAddRow={onAddRow} onEdit={onEdit} removeRow={true}
                             displayed={props.displayed} searchBrowseParams={props.searchBrowseParams}>
                 <XLazyColumn field="id" header="ID" width="5rem"/>
-                <XLazyColumn field="brand" header="Brand" width="15rem"/>
+                <XLazyColumn field="name" header="Name" width="15rem"/>
+                <XLazyColumn field="birthDate" header="Birth date"/>
+                <XLazyColumn field="contact" header="Contact" width="10rem"/>
             </XLazyDataTable>
-            <SourceCodeLinkForm sourceCodeFile="BrandBrowse.tsx"/>
-            <SourceCodeLinkEntity sourceCodeFile="brand.entity.ts"/>
+            <SourceCodeLinkForm sourceCodeFile="ClientBrowse.tsx"/>
+            <SourceCodeLinkEntity sourceCodeFile="client.entity.ts"/>
         </div>
     );
 }

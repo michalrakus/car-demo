@@ -25,9 +25,11 @@ import {Brand} from "./model/brand.entity";
 import {Country} from "./model/country.entity";
 import {Car} from "./model/car.entity";
 import {Ride} from "./model/ride.entity";
+import {CarReservation} from "./model/car-reservation.entity";
+import {Client} from "./model/client.entity";
 
 const entities: EntityClassOrSchema[] = [XBrowseMeta, XColumnMeta, XFile, XUser, XEnumEnum, XEnum, XParam,
-  Brand, Country, Car, Ride
+  Brand, Country, Car, Ride, Client, CarReservation
 ];
 
 // kedze metoda pouziva environment variables, musi byt zavolana az po inicializacii modulu ConfigModule
