@@ -9,7 +9,6 @@ import {XFormFooter} from "@michalrakus/x-react-web-lib/XFormFooter";
 import {XFormHeader} from "@michalrakus/x-react-web-lib/XFormHeader";
 import {XFormBaseModif} from "@michalrakus/x-react-web-lib/XFormBaseModif";
 import {XObject} from "@michalrakus/x-react-web-lib/lib/components/XObject";
-import {XInputTextarea} from "@michalrakus/x-react-web-lib/XInputTextarea";
 import {XInputDate} from "@michalrakus/x-react-web-lib/XInputDate";
 
 @Form("Client")

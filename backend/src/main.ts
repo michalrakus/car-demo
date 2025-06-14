@@ -12,7 +12,7 @@ import {NestExpressApplication} from "@nestjs/platform-express";
 async function bootstrap() {
   // vytvorenie configModule musi byt ako prve lebo modul nacitava variables zo suboru .env
   // isGlobal:true spristupnuje environment variables v kazdom module
-  const configModule: DynamicModule = ConfigModule.forRoot({isGlobal: true});
+  const configModule: DynamicModule = await ConfigModule.forRoot({isGlobal: true});
 
   const protocol: string = XUtils.getEnvVarValue(XEnvVar.X_PROTOCOL);
   let options: NestApplicationOptions | undefined = undefined;

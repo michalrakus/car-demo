@@ -1,6 +1,5 @@
 import React from "react";
 import {
-    XBrowseProps,
     XLazyColumn,
     XLazyDataTable,
     XSearchBrowseProps
@@ -9,25 +8,13 @@ import {BrandForm} from "./BrandForm";
 import {SourceCodeLinkForm} from "./SourceCodeLinkForm";
 import {SourceCodeLinkEntity} from "./SourceCodeLinkEntity";
 
-export const BrandBrowse = (props: XBrowseProps & XSearchBrowseProps) => {
-
-    const onAddRow = () => {
-
-        // openForm is added automatically in XFormNavigator3
-        (props as any).openForm(<BrandForm/>);
-    }
-
-    const onEdit = (selectedRow: any) => {
-
-        // openForm is added automatically in XFormNavigator3
-        (props as any).openForm(<BrandForm id={selectedRow.id}/>);
-    }
+export const BrandBrowse = (props: XSearchBrowseProps) => {
 
     return (
         <div>
             <XLazyDataTable entity="Brand" label="Brands" rows={30} formFooterHeight={'4.43rem'}
-                            onAddRow={onAddRow} onEdit={onEdit} removeRow={true}
-                            displayed={props.displayed} searchBrowseParams={props.searchBrowseParams}>
+                            editForm={<BrandForm/>} removeRow={true}
+                            searchBrowseParams={props.searchBrowseParams}>
                 <XLazyColumn field="id" header="ID" width="5rem"/>
                 <XLazyColumn field="brand" header="Brand" width="15rem"/>
             </XLazyDataTable>
