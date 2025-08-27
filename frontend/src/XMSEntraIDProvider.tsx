@@ -1,7 +1,6 @@
 
 import React, {useState} from 'react';
 // import './App.css'; - tu bol povodne
-import {XMenu} from "./XMenu";
 import {XUtilsMetadata} from "@michalrakus/x-react-web-lib/XUtilsMetadata";
 import {XUtils} from "@michalrakus/x-react-web-lib/XUtils";
 
@@ -11,19 +10,41 @@ import 'primeicons/primeicons.css';
 import 'primeflex/primeflex.css';
 
 import './App.css'; // bol povodne ako prve css
-import {XPostLoginRequest} from "./serverApi/XPostLoginIfc";
+import type {XPostLoginRequest} from "./serverApi/XPostLoginIfc";
 import {XUserNotFoundOrDisabledError} from "./Utils";
 import {
-    IMsalContext,
+    type IMsalContext, MsalProvider,
     useIsAuthenticated,
     useMsal
 } from "@azure/msal-react";
-import {AuthenticationResult, IPublicClientApplication, SilentRequest, AccountInfo} from "@azure/msal-browser";
-import {loginRequest} from "./msalConfig";
+import {
+    type AuthenticationResult,
+    type IPublicClientApplication,
+    type SilentRequest,
+    type AccountInfo, PublicClientApplication,
+} from "@azure/msal-browser";
+import {loginRequest, msalConfig} from "./msalConfig";
 import {Button} from "primereact/button";
 
+// TODO - move to lib, but how to parametrize msalConfig ?
+export const XMSEntraIDProvider = ({children}: {children: React.ReactNode;}) => {
+
+    const msalInstance: PublicClientApplication = new PublicClientApplication(msalConfig);
+
+    //console.log("kontrola msalConfig.auth.redirectUri **************");
+    //console.log(msalConfig.auth.redirectUri);
+
+    return (
+        <MsalProvider instance={msalInstance}>
+            <AppMSEntraID>
+                {children}
+            </AppMSEntraID>
+        </MsalProvider>
+    );
+}
+
 // TODO - v buducnosti presunut do XReactWebLib
-function AppMSEntraID() {
+function AppMSEntraID({children}: {children: React.ReactNode;}) {
 
     const isAuthenticated = useIsAuthenticated();
     const msalContext: IMsalContext = useMsal();
@@ -101,7 +122,11 @@ function AppMSEntraID() {
         }
 
         // ulozime si usera do access token-u - zatial take provizorne, user sa pouziva v preSave na setnutie vytvoril_id
-        XUtils.setXToken({accessToken: XUtils.getXToken()?.accessToken, xUser: xPostLoginResponse.xUser});
+        XUtils.setXToken({
+            accessToken: XUtils.getXToken()?.accessToken,
+            xUser: xPostLoginResponse.xUser,
+            logout: logoutWithRedirect
+        });
 
         //console.log("App - bol uspesne zavolany getAndSetAccessToken");
     }
@@ -151,7 +176,7 @@ function AppMSEntraID() {
         return authenticationResult.accessToken;
     }
 
-    let elem;
+    let elem: React.ReactNode;
     // if (msalContext.inProgress) {
     //     elem = <div className="App-form">User is being initialized using Azure AD...</div>;
     // }
@@ -164,20 +189,15 @@ function AppMSEntraID() {
         else {
             if (!initialized) {
                 elem = <div className="App-form">App is being initialized...</div>;
-                console.log("ideme do initializeApp()");
                 initializeApp();
             }
             else {
-                elem = <XMenu defaultFormElement={null} logout={logoutWithRedirect}/>;
+                elem = children;
             }
         }
     // }
 
-    return (
-        <div className="App">
-            {elem}
-        </div>
-    );
+    return elem;
 }
 
 export default AppMSEntraID;

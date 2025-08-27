@@ -1,6 +1,6 @@
-import {Brand} from "./brand.entity";
-import {Ride} from "./ride.entity";
-import {XUser} from "@michalrakus/x-react-web-lib/lib/serverApi/XUser";
+import type {Brand} from "./brand.entity";
+import type {Ride} from "./ride.entity";
+import type {XUser} from "@michalrakus/x-react-web-lib/XUser";
 
 export interface Car {
     id: number;

@@ -1,8 +1,8 @@
 {
   "name": "depaul-frontend",
-  "version": "1.0.0",
-  "homepage": "/",
   "private": true,
+  "version": "1.0.0",
+  "type": "module",
   "engines": {
     "node": ">=20"
   },
@@ -10,7 +10,7 @@
     "@auth0/auth0-react": "^2.3.0",
     "@azure/msal-browser": "^4.11.0",
     "@azure/msal-react": "^3.0.10",
-    "@michalrakus/x-react-web-lib": "1.37.1",
+    "@michalrakus/x-react-web-lib": "file:..\\..\\XReactWebLib\\michalrakus-x-react-web-lib-1.37.1.tgz",
     "axios": "^1.8.4",
     "lodash": "^4.17.21",
     "primeflex": "^3.3.1",
@@ -19,50 +19,35 @@
     "quill": "^2.0.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-router": "^7.6.2",
     "react-transition-group": "^4.4.5"
   },
   "devDependencies": {
-    "@babel/core": "^7.26.10",
-    "@babel/plugin-syntax-flow": "^7.26.0",
-    "@babel/plugin-transform-react-jsx": "^7.25.9",
-    "@testing-library/dom": "^10.4.0",
-    "@testing-library/jest-dom": "^6.6.3",
-    "@testing-library/react": "^14.1.2",
-    "@testing-library/user-event": "^14.5.2",
-    "@types/jest": "^29.5.14",
+    "@eslint/js": "^9.25.0",
     "@types/lodash": "^4.17.16",
-    "@types/node": "^22.7.4",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.0",
     "@types/react-transition-group": "^4.4.11",
-    "react-scripts": "~5.0.1",
-    "typescript": "5.1.6"
+    "@vitejs/plugin-react": "^4.4.1",
+    "eslint": "^9.25.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.19",
+    "globals": "^16.0.0",
+    "typescript": "~5.8.3",
+    "typescript-eslint": "^8.30.1",
+    "vite": "^6.3.5",
+    "vite-tsconfig-paths": "^5.1.4"
   },
   "scripts": {
-    "start": "react-scripts --openssl-legacy-provider start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "eslint .",
+    "preview": "vite preview",
     "linkLib": "pnpm link @michalrakus/x-react-web-lib",
     "buildAndPackLib": "pnpm --prefix ../../XReactWebLib run buildAndPack",
-    "installLib": "pnpm install ../../XReactWebLib/michalrakus-x-react-web-lib-1.37.1.tgz -w",
+    "installLib": "pnpm install ../../XReactWebLib/michalrakus-x-react-web-lib-1.37.1.tgz",
     "bl": "pnpm run buildAndPackLib && pnpm run installLib",
-    "sl": "pnpm run bl && pnpm run start",
+    "sl": "pnpm run bl && pnpm run dev",
     "preinstall": "npx only-allow pnpm"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
   }
 }

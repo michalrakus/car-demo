@@ -1,5 +1,3 @@
-import React from "react";
-
 export const SourceCodeLinkForm = (props: {sourceCodeFile: string}) => {
     return (
         <div className="flex justify-content-center mt-3">

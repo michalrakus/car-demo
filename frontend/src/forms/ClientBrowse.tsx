@@ -1,8 +1,7 @@
-import React from "react";
 import {
     XLazyColumn,
     XLazyDataTable,
-    XSearchBrowseProps
+    type XSearchBrowseProps
 } from "@michalrakus/x-react-web-lib/XLazyDataTable";
 import {SourceCodeLinkForm} from "./SourceCodeLinkForm";
 import {SourceCodeLinkEntity} from "./SourceCodeLinkEntity";
@@ -13,7 +12,7 @@ export const ClientBrowse = (props: XSearchBrowseProps) => {
     return (
         <div>
             <XLazyDataTable entity="Client" label="Clients" rows={30} formFooterHeight={'4.43rem'}
-                            editForm={<ClientForm/>} removeRow={true}
+                            EditForm={ClientForm} removeRow={true}
                             searchBrowseParams={props.searchBrowseParams}>
                 <XLazyColumn field="id" header="ID" width="5rem"/>
                 <XLazyColumn field="name" header="Name" width="15rem"/>

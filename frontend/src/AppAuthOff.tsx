@@ -1,5 +1,5 @@
 
-import React, {useState} from 'react';
+import {useState} from 'react';
 // import './App.css'; - tu bol povodne
 import {XMenu} from "./XMenu";
 import {XUtilsMetadata} from "@michalrakus/x-react-web-lib/XUtilsMetadata";
@@ -11,8 +11,8 @@ import 'primeicons/primeicons.css';
 import 'primeflex/primeflex.css';
 
 import './App.css'; // bol povodne ako prve css
-import {XPostLoginRequest} from "./serverApi/XPostLoginIfc";
-import {XUserNotFoundOrDisabledError} from "./Utils";
+import type {XPostLoginRequest} from "./serverApi/XPostLoginIfc";
+import {Utils, XUserNotFoundOrDisabledError} from "./Utils";
 import {Button} from "primereact/button";
 import {XEnvVar} from "@michalrakus/x-react-web-lib/XEnvVars";
 
@@ -53,7 +53,7 @@ function AppAuthOff() {
         XUtils.setXToken({accessToken: 'dummy'});
 
         // zavolame post-login
-        const username: string = XUtils.getEnvVarValue(XEnvVar.REACT_APP_AUTH_OFF_USERNAME);
+        const username: string = Utils.getEnvVarValue(XEnvVar.VITE_AUTH_OFF_USERNAME);
         let xPostLoginResponse;
         try {
             const xPostLoginRequest: XPostLoginRequest = {username: username};

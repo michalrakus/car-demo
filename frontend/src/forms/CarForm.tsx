@@ -1,4 +1,3 @@
-import React from "react";
 import {XInputText} from "@michalrakus/x-react-web-lib/XInputText";
 import type {XFormProps} from "@michalrakus/x-react-web-lib/XFormBase";
 import {XDropdown} from "@michalrakus/x-react-web-lib/XDropdown";
@@ -13,22 +12,20 @@ import {XInputDecimal} from "@michalrakus/x-react-web-lib/XInputDecimal";
 import {XInputDate} from "@michalrakus/x-react-web-lib/XInputDate";
 import {SourceCodeLinkForm} from "./SourceCodeLinkForm";
 import {SourceCodeLinkEntity} from "./SourceCodeLinkEntity";
-import {Form} from "../XLibItems";
 import {XUtils} from "@michalrakus/x-react-web-lib/XUtils";
 import {XCheckbox} from "@michalrakus/x-react-web-lib/XCheckbox";
-import {XObject} from "@michalrakus/x-react-web-lib/lib/components/XObject";
-import {XErrors} from "@michalrakus/x-react-web-lib/XErrors";
+import type {XErrors} from "@michalrakus/x-react-web-lib/XErrors";
 import {XAutoComplete} from "@michalrakus/x-react-web-lib/XAutoComplete";
 import {XFormFooter} from "@michalrakus/x-react-web-lib/XFormFooter";
 import {XInputTextarea} from "@michalrakus/x-react-web-lib/XInputTextarea";
 import {XFormHeader} from "@michalrakus/x-react-web-lib/XFormHeader";
 import {XFormBaseModif} from "@michalrakus/x-react-web-lib/XFormBaseModif";
+import type {XObject} from "@michalrakus/x-react-web-lib/XObject";
 
-@Form("Car")
 export class CarForm extends XFormBaseModif {
 
     constructor(props: XFormProps) {
-        super(props);
+        super(props, "Car");
     }
 
     createNewObject(): XObject {
@@ -74,7 +71,7 @@ export class CarForm extends XFormBaseModif {
                     <div className="x-form-col">
                         <XInputDecimal form={this} field="brandAssoc.id" label="ID Brand"/>
                         <XDropdown form={this} assocField="brandAssoc" displayField="brand" label="Brand assoc Dropdown"/>
-                        <XAutoComplete form={this} assocField="brandAssoc" displayField="brand" assocForm={<BrandForm/>} label="Brand assoc AutoComplete"/>
+                        <XAutoComplete form={this} assocField="brandAssoc" displayField="brand" AssocForm={BrandForm} label="Brand assoc AutoComplete"/>
                         <XToOneAssocButton form={this} assocField="brandAssoc" assocForm={<BrandForm/>} label="Brand assoc AssocButton" buttonLabel="Brand form"/>
                     </div>
                 </div>
@@ -98,6 +95,10 @@ export class CarForm extends XFormBaseModif {
             </div>
         );
     }
+}
+
+(CarForm as any).assocList = (): string[] => {
+    return ["modifXUser", "brandAssoc", "rideList.country"];
 }
 
 // registration is used if user opens form from editable Browse saved in DB

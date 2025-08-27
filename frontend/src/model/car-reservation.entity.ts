@@ -1,6 +1,6 @@
-import {Car} from "./car.entity";
-import {Client} from "./client.entity";
-import {XUser} from "@michalrakus/x-react-web-lib/lib/serverApi/XUser";
+import type {Car} from "./car.entity";
+import type {Client} from "./client.entity";
+import type {XUser} from "@michalrakus/x-react-web-lib/XUser";
 
 export interface CarReservation {
     id: number;

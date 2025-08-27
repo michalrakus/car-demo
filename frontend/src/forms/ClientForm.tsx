@@ -1,18 +1,20 @@
-import React from "react";
 import {XInputText} from "@michalrakus/x-react-web-lib/XInputText";
 import {SourceCodeLinkForm} from "./SourceCodeLinkForm";
 import {SourceCodeLinkEntity} from "./SourceCodeLinkEntity";
-import {Form} from "../XLibItems";
 import {XInputDecimal} from "@michalrakus/x-react-web-lib/XInputDecimal";
 import {XUtils} from "@michalrakus/x-react-web-lib/XUtils";
 import {XFormFooter} from "@michalrakus/x-react-web-lib/XFormFooter";
 import {XFormHeader} from "@michalrakus/x-react-web-lib/XFormHeader";
 import {XFormBaseModif} from "@michalrakus/x-react-web-lib/XFormBaseModif";
-import {XObject} from "@michalrakus/x-react-web-lib/lib/components/XObject";
+import type {XObject} from "@michalrakus/x-react-web-lib/XObject";
 import {XInputDate} from "@michalrakus/x-react-web-lib/XInputDate";
+import {type XFormProps} from "@michalrakus/x-react-web-lib/XFormBase";
 
-@Form("Client")
 export class ClientForm extends XFormBaseModif {
+
+    constructor(props: XFormProps) {
+        super(props, "Client");
+    }
 
     createNewObject(): XObject {
         return {version: 0};
@@ -39,6 +41,10 @@ export class ClientForm extends XFormBaseModif {
             </div>
         );
     }
+}
+
+(ClientForm as any).assocList = (): string[] => {
+    return ["modifXUser"];
 }
 
 // registration is used if user opens form from editable Browse saved in DB

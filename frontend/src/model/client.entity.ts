@@ -1,4 +1,4 @@
-import {XUser} from "@michalrakus/x-react-web-lib/lib/serverApi/XUser";
+import type {XUser} from "@michalrakus/x-react-web-lib/XUser";
 
 export interface Client {
     id: number;

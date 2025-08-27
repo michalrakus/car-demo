@@ -1,5 +1,5 @@
-import {Country} from "./country.entity";
-import {Car} from "./car.entity";
+import type {Country} from "./country.entity";
+import type {Car} from "./car.entity";
 
 export interface Ride {
     id: number;

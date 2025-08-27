@@ -1,26 +1,38 @@
-import React from "react";
 import {
     XLazyColumn,
     XLazyDataTable,
-    XSearchBrowseProps
+    type XSearchBrowseProps
 } from "@michalrakus/x-react-web-lib/XLazyDataTable";
 import {SourceCodeLinkForm} from "./SourceCodeLinkForm";
 import {SourceCodeLinkEntity} from "./SourceCodeLinkEntity";
 import {CarReservationForm} from "./CarReservationForm";
 import {ClientForm} from "./ClientForm";
+import type {CarReservation} from "../model/car-reservation.entity.ts";
+import {UtilsCommon} from "@common/UtilsCommon";
 
 export const CarReservationBrowse = (props: XSearchBrowseProps) => {
+
+    const onUpravit = (selectedRow: CarReservation) => {
+        const id = selectedRow.id;
+        console.log(id);
+        UtilsCommon.test();
+    }
 
     return (
         <div>
             <XLazyDataTable entity="CarReservation" label="Car reservations" rows={30} formFooterHeight={'4.43rem'}
-                            editForm={<CarReservationForm/>} removeRow={true}
+                            editFormElement={<CarReservationForm/>} removeRow={true}
+                            appButtonsForRow={[{
+                                key: "uprava",
+                                label: "Upraviť",
+                                onClick: onUpravit
+                            }]}
                             searchBrowseParams={props.searchBrowseParams}>
                 <XLazyColumn field="id" header="ID" width="5rem"/>
                 <XLazyColumn field="client.name" header="Client" width="15rem"
                              autoFilter={true}
                              autoComplete={{
-                                 assocField: "client", field: "name", valueForm: <ClientForm/>,
+                                 assocField: "client", field: "name", ValueForm: ClientForm,
                                  lazyLoadMaxRows: 15, scrollHeight: "25rem"
                              }}/>
                 <XLazyColumn field="dateFrom" header="Date from"/>

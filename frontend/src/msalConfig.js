@@ -1,12 +1,12 @@
 import { LogLevel } from "@azure/msal-browser";
-import {XEnvVar, XReactAppAuth} from "@michalrakus/x-react-web-lib/XEnvVars";
-import {XUtils} from "@michalrakus/x-react-web-lib/lib/components/XUtils";
+import {XEnvVar, XViteAuth} from "@michalrakus/x-react-web-lib/XEnvVars";
+import {Utils} from "./Utils.js";
 
 export let msalConfig;
 export let loginRequest;
 export let graphConfig;
 
-if (XUtils.getEnvVarValue(XEnvVar.REACT_APP_AUTH) === XReactAppAuth.MS_ENTRA_ID) {
+if (Utils.getEnvVarValue(XEnvVar.VITE_AUTH) === XViteAuth.MS_ENTRA_ID) {
     /**
      * Configuration object to be passed to MSAL instance on creation.
      * For a full list of MSAL.js configuration parameters, visit:
@@ -14,8 +14,8 @@ if (XUtils.getEnvVarValue(XEnvVar.REACT_APP_AUTH) === XReactAppAuth.MS_ENTRA_ID)
      */
     msalConfig = {
         auth: {
-            clientId: XUtils.getEnvVarValue(XEnvVar.REACT_APP_MS_ENTRA_ID_CLIENT_ID),
-            authority: `https://login.microsoftonline.com/${XUtils.getEnvVarValue(XEnvVar.REACT_APP_MS_ENTRA_ID_TENANT_ID)}`,
+            clientId: Utils.getEnvVarValue(XEnvVar.VITE_MS_ENTRA_ID_CLIENT_ID),
+            authority: `https://login.microsoftonline.com/${Utils.getEnvVarValue(XEnvVar.VITE_MS_ENTRA_ID_TENANT_ID)}`,
             //redirectUri: "http://localhost:3000"
             // redirectUri will be url of the frontend application:
             redirectUri: window.location.origin + window.location.pathname
@@ -59,7 +59,7 @@ if (XUtils.getEnvVarValue(XEnvVar.REACT_APP_AUTH) === XReactAppAuth.MS_ENTRA_ID)
      * https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-permissions-and-consent#openid-connect-scopes
      */
     loginRequest = {
-        scopes: [XUtils.getEnvVarValue(XEnvVar.REACT_APP_MS_ENTRA_ID_BACKEND_SCOPE)]
+        scopes: [Utils.getEnvVarValue(XEnvVar.VITE_MS_ENTRA_ID_BACKEND_SCOPE)]
     };
 
     /**

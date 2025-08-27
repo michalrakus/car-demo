@@ -4,7 +4,7 @@
 # uses config file .env
 
 # usage:
-# 1. change env values in config file .env for run on localhost (X_PROTOCOL=HTTP, REACT_APP_BACKEND_URL=http://localhost/backend)
+# 1. change env values in config file .env for run on localhost (X_PROTOCOL=HTTP, VITE_BACKEND_URL=http://localhost/backend)
 # 2. open cmd, go to the directory where this file is located and run for example:
 # docker compose build frontend   -> builds image for frontend (usefull if for example the source code of frontend has changed)
 # docker compose build backend    -> builds image for backend
@@ -69,12 +69,12 @@ services:
       context: ../../frontend
       args:
         # these env variables must be also in frontend Dockerfile written (are needed during build (before run))
-        - REACT_APP_BACKEND_URL=${REACT_APP_BACKEND_URL}
-        - REACT_APP_AUTH=${X_AUTH}
-        - REACT_APP_AUTH_OFF_USERNAME=${REACT_APP_AUTH_OFF_USERNAME}
-        - REACT_APP_AUTH0_DOMAIN=${X_AUTH0_DOMAIN}
-        - REACT_APP_AUTH0_CLIENT_ID=${REACT_APP_AUTH0_CLIENT_ID}
-        - REACT_APP_AUTH0_AUDIENCE=${X_AUTH0_AUDIENCE}
+        - VITE_BACKEND_URL=${VITE_BACKEND_URL}
+        - VITE_AUTH=${X_AUTH}
+        - VITE_AUTH_OFF_USERNAME=${VITE_AUTH_OFF_USERNAME}
+        - VITE_AUTH0_DOMAIN=${X_AUTH0_DOMAIN}
+        - VITE_AUTH0_CLIENT_ID=${VITE_AUTH0_CLIENT_ID}
+        - VITE_AUTH0_AUDIENCE=${X_AUTH0_AUDIENCE}
         #- BROWSER=none
     restart: unless-stopped
     #env_file: docker-compose.env

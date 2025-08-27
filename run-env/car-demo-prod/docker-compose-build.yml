@@ -19,10 +19,10 @@ services:
       context: ../../frontend
       args:
         # these env variables must be also in frontend Dockerfile written (are needed during build (before run))
-        - REACT_APP_BACKEND_URL=${REACT_APP_BACKEND_URL}
-        - REACT_APP_AUTH=${X_AUTH}
-        - REACT_APP_AUTH_OFF_USERNAME=${REACT_APP_AUTH_OFF_USERNAME}
-        - REACT_APP_AUTH0_DOMAIN=${X_AUTH0_DOMAIN}
-        - REACT_APP_AUTH0_CLIENT_ID=${REACT_APP_AUTH0_CLIENT_ID}
-        - REACT_APP_AUTH0_AUDIENCE=${X_AUTH0_AUDIENCE}
+        - VITE_BACKEND_URL=${VITE_BACKEND_URL}
+        - VITE_AUTH=${X_AUTH}
+        - VITE_AUTH_OFF_USERNAME=${VITE_AUTH_OFF_USERNAME}
+        - VITE_AUTH0_DOMAIN=${X_AUTH0_DOMAIN}
+        - VITE_AUTH0_CLIENT_ID=${VITE_AUTH0_CLIENT_ID}
+        - VITE_AUTH0_AUDIENCE=${X_AUTH0_AUDIENCE}
         #- BROWSER=none

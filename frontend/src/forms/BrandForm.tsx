@@ -1,16 +1,17 @@
-import React from "react";
 import {XInputText} from "@michalrakus/x-react-web-lib/XInputText";
 import {SourceCodeLinkForm} from "./SourceCodeLinkForm";
 import {SourceCodeLinkEntity} from "./SourceCodeLinkEntity";
-import {XFormBase} from "@michalrakus/x-react-web-lib/XFormBase";
-import {Form} from "../XLibItems";
+import {XFormBase, type XFormProps} from "@michalrakus/x-react-web-lib/XFormBase";
 import {XInputDecimal} from "@michalrakus/x-react-web-lib/XInputDecimal";
 import {XUtils} from "@michalrakus/x-react-web-lib/XUtils";
 import {XFormFooter} from "@michalrakus/x-react-web-lib/XFormFooter";
 import {XFormHeader} from "@michalrakus/x-react-web-lib/XFormHeader";
 
-@Form("Brand")
 export class BrandForm extends XFormBase {
+
+    constructor(props: XFormProps) {
+        super(props, "Brand");
+    }
 
     render() {
         return (
